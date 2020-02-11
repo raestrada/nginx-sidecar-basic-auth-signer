@@ -41,13 +41,13 @@ docker run -d --name nginx-basic-auth-signer -p 8087:8087 \
   xscys/nginx-sidecar-basic-auth
 ```
 
-### OpenShift Sidecar Usage
+### Kubernetes Sidecar Usage
 
 Add the sidecar container next to your application container in your deployment
 configuration:
 
 ```yaml
-- image: xscys/nginx-sidecar-basic-auth
+- image: restradacl/nginx-sidecar-basic-auth-signer
   imagePullPolicy: Always
   name: auth-proxy
   ports:
