@@ -38,7 +38,7 @@ RUN htpasswd -cb ./auth $BASIC_AUTH_USERNAME $BASIC_AUTH_PASSWORD
 # --------------------
 # FILL TEMPLATES & GO
 # --------------------
-CMD RUN HTTPPASSWD=$(cat auth); dockerize \
+CMD HTTPPASSWD=$(cat auth); dockerize \
   -template /templates/default.conf.tpl:/etc/nginx/conf.d/default.conf \
   -template /templates/nginx.conf.tpl:/etc/nginx/nginx.conf \
   nginx
