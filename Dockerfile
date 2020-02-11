@@ -33,11 +33,12 @@ RUN wget -O dockerize.tar.gz https://github.com/jwilder/dockerize/releases/downl
 # --------------------
 COPY default.conf.tpl nginx.conf.tpl /templates/
 
+RUN htpasswd -cb ./auth $BASIC_AUTH_USERNAME $BASIC_AUTH_PASSWORD
+
 # --------------------
 # FILL TEMPLATES & GO
 # --------------------
-CMD htpasswd -Bbn "$BASIC_AUTH_USERNAME" "$BASIC_AUTH_PASSWORD" > /etc/nginx/auth.htpasswd && \
-  dockerize \
+CMD RUN HTTPPASSWD=$(cat auth); dockerize \
   -template /templates/default.conf.tpl:/etc/nginx/conf.d/default.conf \
   -template /templates/nginx.conf.tpl:/etc/nginx/nginx.conf \
   nginx
