@@ -34,7 +34,7 @@ Start the container and link it with your backend (alternatively, use Docker
 networks):
 
 ```sh
-docker run -d --name nginx-basic-auth -p 8087:8087 \
+docker run -d --name nginx-basic-auth-signer -p 8087:8087 \
   --link backend:backend \
   -e FORWARD_HOST=backend \
   -e FORWARD_PORT=3000 \

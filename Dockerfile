@@ -1,5 +1,5 @@
 FROM nginx:alpine
-MAINTAINER "Yannick Scherer <yannick.scherer@gmail.com>"
+MAINTAINER "Rodrigo Estrada <rodrigo.estrada@gmail.com>"
 
 # --------------------
 # METADATA
