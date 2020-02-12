@@ -15,6 +15,7 @@ Configuration is provided using environment variables:
 | `PORT`                    | Port to listen on                                                  | `8087`        |
 | `FORWARD_HOST`            | Hostname of the backend server to proxy to                         | `localhost`   |
 | `FORWARD_PORT`            | Port of the backend server to proxy to                             | `8080`        |
+| `SSL`                     | If the upstream server use ssl, use this                           | (none)        |
 | `BASIC_AUTH_USERNAME`     | Username to use for authentication                                 | `admin`       |
 | `BASIC_AUTH_PASSWORD`     | Password to use for authentication                                 | `admin`       |
 | `PROXY_READ_TIMEOUT`      | Defines a timeout for reading a response from the proxied server   | `60s`         |
