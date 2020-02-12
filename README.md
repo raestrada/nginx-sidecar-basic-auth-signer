@@ -2,7 +2,7 @@
 
 ## Based on [nginx-sidecar-basic-auth](https://github.com/xsc/nginx-sidecar-basic-auth)
 
-This is a Docker image that provides an [nginx][nginx] proxy server signing with http basic authorization
+This is a Docker image that provides an [nginx][https://nginx.org/] proxy server signing with http basic authorization
 credentials on any request. It is suitable
 for operation within kubernetes, e.g. as a sidecar container.
 
