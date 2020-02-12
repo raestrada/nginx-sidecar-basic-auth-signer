@@ -23,10 +23,22 @@ ENV NGINX_VERSION=1.12.2 \
 # --------------------
 RUN wget -O dockerize.tar.gz https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && tar -C /usr/local/bin -xzvf dockerize.tar.gz \
-  && apk add --update --no-cache --virtual entrypoint apache2-utils \
+  && apk add --update --no-cache --virtual entrypoint apache2-utils curl \
   && rm dockerize.tar.gz /etc/nginx/conf.d/default.conf /etc/nginx/nginx.conf \
   && mkdir /templates \
   && chmod g+rw /etc/nginx /etc/nginx/conf.d /templates
+
+# --------------------
+# CERTIFICATES
+# --------------------
+
+RUN curl https://pkg.cfssl.org/R1.2/cfssl_linux-amd64 -o /usr/local/bin/cfssl \
+  && curl https://pkg.cfssl.org/R1.2/cfssljson_linux-amd64 -o /usr/local/bin/cfssljson \
+  && chmod +x /usr/local/bin/cfssl /usr/local/bin/cfssljson
+
+COPY include/generate_ca.sh /
+
+RUN /bin/sh /generate_ca.sh
 
 # --------------------
 # TEMPLATES
