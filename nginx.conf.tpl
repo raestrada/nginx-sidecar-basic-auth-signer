@@ -4,7 +4,7 @@ events {
     worker_connections 512;
 }
 
-error_log /dev/stderr debug;
+error_log /dev/stderr warn;
 pid       /tmp/nginx.pid;
 
 http {
